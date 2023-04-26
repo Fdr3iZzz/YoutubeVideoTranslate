@@ -30,7 +30,7 @@ import java.util.Collection;
 public class GetInformation {
     private static final String CLIENT_SECRETS= "client_secret.json";
     //private static final InputStream CLIENT_SECRETS = VideoDownload.class.getClassLoader().getResourceAsStream("client_secret.json");
-    private static final String ApiKey = "";
+    private static final String ApiKey = "AIzaSyAsl6r79IGYae7rkoaS7lDs7uwUYewwN7s";
     public static String getApiKey () {
     return ApiKey;
     }

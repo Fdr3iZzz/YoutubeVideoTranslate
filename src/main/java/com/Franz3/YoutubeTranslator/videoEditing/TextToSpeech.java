@@ -1,4 +1,4 @@
-package com.Franz3.YoutubeTranslator.voiceCreation;
+package com.Franz3.YoutubeTranslator.videoEditing;
 
 import java.io.*;
 public class TextToSpeech {
