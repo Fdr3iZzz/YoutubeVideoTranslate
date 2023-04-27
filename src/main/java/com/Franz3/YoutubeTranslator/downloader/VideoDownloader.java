@@ -23,7 +23,7 @@ public class VideoDownloader {
         while ((line = es.readLine()) != null) {
             System.out.println(line);
         }
-        return true;
-
+        int exitValue = process.waitFor();
+        return exitValue == 0;
     }
 }

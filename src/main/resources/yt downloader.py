@@ -3,27 +3,37 @@ import sys
 
 URLS = sys.argv[1]
 print('URL: ' + URLS)
-options = {
-    'format': 'bestvideo+bestaudio/best',
-    'sponskrub_remove': True,
-    'sponskrub_mark': True,
-    'embed_subs': True,
-    'add_metadata': True,
-    'outtmpl': 'C:/Users/Franz3/YoutubeVideoTranslator/%(title)s.%(ext)s',
-    'verbose': True
-}
-download_finished = False
-def my_hook(d):
-    global download_finished
-    if d['status'] == 'finished':
-        download_finished = True
 
+options = {'format': 'bestvideo+bestaudio/best',
+           'outtmpl': {'default': 'C:/Users/Franz3/YoutubeVideoTranslator/%(title)s.%(ext)s'},
+           'postprocessors': [{'api': 'https://sponsor.ajay.app',
+                               'categories': {'filler',
+                                              'interaction',
+                                              'intro',
+                                              'music_offtopic',
+                                              'outro',
+                                              'preview',
+                                              'selfpromo',
+                                              'sponsor'},
+                               'key': 'SponsorBlock',
+                               'when': 'after_filter'},
+                              {'force_keyframes': False,
+                               'key': 'ModifyChapters',
+                               'remove_chapters_patterns': [],
+                               'remove_ranges': [],
+                               'remove_sponsor_segments': {'filler',
+                                                           'interaction',
+                                                           'intro',
+                                                           'music_offtopic',
+                                                           'outro',
+                                                           'preview',
+                                                           'selfpromo',
+                                                           'sponsor'},
+                               'sponsorblock_chapter_title': '[SponsorBlock]: '
+                                                             '%(category_names)l'},
+                              {'add_chapters': True,
+                               'add_infojson': None,
+                               'add_metadata': False,
+                               'key': 'FFmpegMetadata'}]}
 with YoutubeDL(options) as ydl:
-    ydl.add_progress_hook(my_hook)
     ydl.download(URLS)
-
-#print(download_finished)
-#options = {
-#    'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
-#    'merge_output_format': 'mp4',
-#}

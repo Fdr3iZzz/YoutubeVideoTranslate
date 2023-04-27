@@ -24,7 +24,8 @@ dependencies {
     implementation ("org.apache.httpcomponents:httpclient:4.5.14")
     implementation ("net.clojars.suuft:libretranslate-java:1.0.5")
     implementation("org.python:jython-slim:2.7.3")
-
+    implementation ("com.moandjiezana.toml:toml4j:0.7.2")
+    implementation ("com.fasterxml.jackson.core:jackson-core:jackson.version.core")
 }
 
 tasks.test {
