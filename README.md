@@ -8,6 +8,11 @@
 6. add ai voice to the video
 7. start video in mpv
 
+## Dependencies
+- Python
+- FFmpeg
+- yt-dlp
+
 ## Use:
 paste youtubelink and enjoy
 (maybe you will have a config to define the output langauge)
