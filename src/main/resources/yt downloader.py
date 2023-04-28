@@ -1,5 +1,6 @@
 from yt_dlp import YoutubeDL
 import sys
+import json
 
 URLS = sys.argv[1]
 print('URL: ' + URLS)
@@ -36,4 +37,6 @@ options = {'format': 'bestvideo+bestaudio/best',
                                'add_metadata': False,
                                'key': 'FFmpegMetadata'}]}
 with YoutubeDL(options) as ydl:
-    ydl.download(URLS)
+    info = ydl.extract_info(URLS)
+    with open('C:/Users/Franz3/YoutubeVideoTranslator/sponsorblockChapters.json', 'w') as outfile:
+        outfile.write(json.dumps(info['sponsorblock_chapters']))

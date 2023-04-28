@@ -31,6 +31,6 @@ public class Main {
         //if (VideoDownloader.ytDlp()) {
         //    launchVideo("C:\\Users\\Franz3\\YoutubeVideoTranslator\\23 CSGO Things 99.7% of Players Don't Know.webm");
         //}
-        getInformation();
+        //getInformation();
     }
 }
