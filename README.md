@@ -12,6 +12,7 @@
 - Python
 - FFmpeg
 - yt-dlp
+- mpv
 
 ## Use:
 paste youtubelink and enjoy
