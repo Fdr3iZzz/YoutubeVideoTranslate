@@ -25,7 +25,8 @@ dependencies {
     implementation ("net.clojars.suuft:libretranslate-java:1.0.5")
     implementation("org.python:jython-slim:2.7.3")
     implementation ("com.moandjiezana.toml:toml4j:0.7.2")
-    implementation ("com.fasterxml.jackson.core:jackson-core:jackson.version.core")
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.15.0")
+    implementation ("com.fasterxml.jackson.core:jackson-core:2.15.0")
 }
 
 tasks.test {
