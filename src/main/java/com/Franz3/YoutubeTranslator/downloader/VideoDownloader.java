@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class VideoDownloader {
     private static final String path = "C:\\Users\\Franz3\\IdeaProjects\\YoutubeVideoTranslate\\src\\main\\resources\\yt downloader.py";
     public static boolean ytDlp() throws IOException, InterruptedException {
-        String arg1 = "https://www.youtube.com/watch?v=IqDjyPRyAHs";
+        String arg1 = "https://youtu.be/SqB0lUcqFbA";
         String[] cmd = {
                 "python",
                 path,

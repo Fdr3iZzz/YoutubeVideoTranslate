@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moandjiezana.toml.Toml;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -12,10 +13,12 @@ import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class TextToSpeech {
     public static String GetApiKey(){
-        Toml toml = new Toml().read("config.toml");
+        File file = new File("C:\\Users\\Franz3\\IdeaProjects\\YoutubeVideoTranslate\\src\\main\\resources\\config.toml");
+        Toml toml = new Toml().read(file);
         return toml.getString("elevenlabsApiKey");
     }
     public static class TextToSpeechRequest {
@@ -55,26 +58,26 @@ public class TextToSpeech {
     }
 
     public static class VoiceSettings {
-        private int stability;
-        private int similarity_boost;
+        private double stability;
+        private double similarity_boost;
         public VoiceSettings(int stability, int similarity_boost) {
             this.stability = stability;
             this.similarity_boost = similarity_boost;
         }
 
-        public int getStability() {
+        public double getStability() {
             return stability;
         }
 
-        public void setStability(int stability) {
+        public void setStability(double stability) {
             this.stability = stability;
         }
 
-        public int getSimilarity_boost() {
+        public double getSimilarity_boost() {
             return similarity_boost;
         }
 
-        public void setSimilarity_boost(int similarity_boost) {
+        public void setSimilarity_boost(double similarity_boost) {
             this.similarity_boost = similarity_boost;
         }
     }
@@ -82,7 +85,6 @@ public class TextToSpeech {
         String path = "C:\\Users\\Franz3\\Desktop\\";
             VoiceSettings voiceSettings = new VoiceSettings(0, 0);
             TextToSpeechRequest request = new TextToSpeechRequest("ErXwobaYiN019PkySvjV", textInput, voiceSettings);
-            request.setText("Hello, world!");
 
             ObjectMapper mapper = new ObjectMapper();
             String requestBody = mapper.writeValueAsString(request);
@@ -90,15 +92,11 @@ public class TextToSpeech {
             HttpRequest httpRequest = HttpRequest.newBuilder()
                     .uri(URI.create("https://api.elevenlabs.io/v1/text-to-speech/ErXwobaYiN019PkySvjV/stream"))
                     .header("accept", "audio/mpeg")
-                    .header("xi-api-key", "PLACEHOLDER")
+                    .header("xi-api-key", GetApiKey())
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(requestBody))
                     .build();
-            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            System.out.println(httpResponse.body());
-
-            byte[] audioBytes = httpResponse.body().getBytes();
-            Path filePath = Paths.get(path + "audio.mp3");
-            Files.write(filePath, audioBytes);
+            HttpResponse<byte[]> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofByteArray());
+            Files.write(Path.of(path + "audio.mp3"), httpResponse.body(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
     }
 }

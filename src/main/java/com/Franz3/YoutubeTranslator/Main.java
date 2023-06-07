@@ -1,7 +1,8 @@
 package com.Franz3.YoutubeTranslator;
 
 import com.Franz3.YoutubeTranslator.downloader.VideoDownloader;
-import static com.Franz3.YoutubeTranslator.downloader.GetInformation.getInformation;
+import static com.Franz3.YoutubeTranslator.videoEditing.GetSponsorSegments.getSponsorSegments;
+
 import com.Franz3.YoutubeTranslator.videoEditing.TextToSpeech;
 
 import java.io.BufferedReader;
@@ -27,10 +28,11 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        TextToSpeech.mainTextToSpeech("Hello, this is a test");
-        //if (VideoDownloader.ytDlp()) {
-        //    launchVideo("C:\\Users\\Franz3\\YoutubeVideoTranslator\\23 CSGO Things 99.7% of Players Don't Know.webm");
-        //}
+        //VideoDownloader.ytDlp();
         //getInformation();
+        getSponsorSegments();
+        //TextToSpeech.mainTextToSpeech("");
+        //edit video
+        //launchVideo("C:\\Users\\Franz3\\YoutubeVideoTranslator\\23 CSGO Things 99.7% of Players Don't Know.webm");
     }
 }
