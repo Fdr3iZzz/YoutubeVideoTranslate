@@ -2,7 +2,7 @@
 ## Todo:
 1. get Youtube video (without sponsor) &#x2714;
 2. get metadata (transscript)
-3. translate trasscript
+3. translate trascript
 4. create ai voice &#x2714;
 5. delete old audio
 6. add ai voice to the video
@@ -15,7 +15,7 @@
 - mpv
 
 ## Setup
-#### Youtube transscript
+#### Youtube transcript
 - get yourself a client_secret and put it in the resources folder
 - get a youtube api key and add it to the config.toml
 #### Ai voice
