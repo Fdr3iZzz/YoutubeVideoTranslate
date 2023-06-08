@@ -81,8 +81,8 @@ public class TextToSpeech {
             this.similarity_boost = similarity_boost;
         }
     }
-        public static void mainTextToSpeech(String textInput) throws IOException, InterruptedException {
-        String path = "C:\\Users\\Franz3\\Desktop\\";
+        public static void textToSpeech(String textInput) throws IOException, InterruptedException {
+        String path = "C:\\Users\\" + System.getProperty("user.name") + "\\YoutubeVideoTranslator\\";
             VoiceSettings voiceSettings = new VoiceSettings(0, 0);
             TextToSpeechRequest request = new TextToSpeechRequest("ErXwobaYiN019PkySvjV", textInput, voiceSettings);
 
