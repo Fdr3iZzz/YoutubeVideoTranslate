@@ -25,6 +25,7 @@ public class VideoDownloader {
             System.out.println(line);
         }
         int exitValue = process.waitFor();
+        System.out.println("finished");
         return exitValue == 0;
     }
 }
