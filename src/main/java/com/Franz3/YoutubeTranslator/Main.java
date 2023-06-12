@@ -2,7 +2,6 @@ package com.Franz3.YoutubeTranslator;
 
 import com.Franz3.YoutubeTranslator.downloader.VideoDownloader;
 
-import static com.Franz3.YoutubeTranslator.downloader.GetInformation.getTranscript;
 import static com.Franz3.YoutubeTranslator.videoEditing.GetSponsorSegments.getSponsorSegments;
 import static com.Franz3.YoutubeTranslator.videoEditing.Helper.launchVideo;
 

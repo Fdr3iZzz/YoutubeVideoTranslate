@@ -36,11 +36,18 @@ options = {'format': 'bestvideo+bestaudio/best',
                                'add_infojson': None,
                                'add_metadata': False,
                                'key': 'FFmpegMetadata'}],
-           'subtitleslangs': ['en'],
-           'verbose': True,
-           'writeautomaticsub': True,
-           'writesubtitles': True}
+           'verbose': True
+           }
 with YoutubeDL(options) as ydl:
     info = ydl.extract_info(URLS)
     with open('C:/Users/Franz3/YoutubeVideoTranslator/sponsorblockChapters.json', 'w') as outfile:
         outfile.write(json.dumps(info['sponsorblock_chapters']))
+options2 = {
+    'outtmpl': {'default': 'C:/Users/Franz3/YoutubeVideoTranslator/%(title)s.%(ext)s'}, 'subtitleslangs': ['en'],
+    'verbose': True,
+    'writeautomaticsub': True,
+    'writesubtitles': True
+}
+
+with YoutubeDL(options2) as ydl:
+    ydl.download(URLS)
