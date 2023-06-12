@@ -15,9 +15,6 @@
 - mpv
 
 ## Setup
-#### Youtube transcript
-- get yourself a client_secret and put it in the resources folder
-- get a youtube api key and add it to the config.toml
 #### Ai voice
 - get an api key from ElevenLabs
 
