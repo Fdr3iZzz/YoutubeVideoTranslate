@@ -1,4 +1,4 @@
-package com.Franz3.YoutubeTranslator.videoEditing;
+package com.Franz3.YoutubeTranslator.downloader;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
